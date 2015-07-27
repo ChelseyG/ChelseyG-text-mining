@@ -3,6 +3,7 @@
 ## Requirements
 - Python 2.7.6
 - [Tweepy](https://github.com/tweepy/tweepy)
+- Your very own Twitter apps. Register one [here](https://apps.twitter.com).
 
 _Note: please follow the installation instruction found on the official Tweepy repo before continuing_
 
