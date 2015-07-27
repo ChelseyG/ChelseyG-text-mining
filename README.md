@@ -1,5 +1,5 @@
 # text-mining
-A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python. Read more about the API [here](https://dev.twitter.com/streaming/overview)
+A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python. Read more about the API [here](https://dev.twitter.com/streaming/overview).
 
 ## Requirements
 - Python 2.7.6
