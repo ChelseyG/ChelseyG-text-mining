@@ -1,10 +1,10 @@
 # text-mining
-A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python. Read more about the API [here](https://dev.twitter.com/streaming/overview).
+A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python for Big Data analysis. Read more about the API [here](https://dev.twitter.com/streaming/overview).
 
 ## Requirements
 - Python 2.7.6
 - [Tweepy](https://github.com/tweepy/tweepy)
-- Your very own Twitter apps. Register one [here](https://apps.twitter.com).
+- Your very own Twitter app - register one [here](https://apps.twitter.com)
 
 _Note: please follow the installation instruction found on the official Tweepy repo before continuing_
 
@@ -19,6 +19,7 @@ _Note: please follow the installation instruction found on the official Tweepy r
 
 ## Use cases
 - Data mining of tweets for Big Data analysis
+- Dumping data into a database a.k.a. collecting
 - Parse the stream into a live-feed of tweets
 - Any other ideas? Let me know
 
