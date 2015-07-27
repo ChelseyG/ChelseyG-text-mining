@@ -1,4 +1,5 @@
 # text-mining
+A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python. Read more about the API [here](https://dev.twitter.com/streaming/overview)
 
 ## Requirements
 - Python 2.7.6
@@ -23,6 +24,8 @@ _Note: please follow the installation instruction found on the official Tweepy r
 
 ## Todo
 - [ ] Add mongoDB integration using PyMongo driver
+- [ ] Put the project on Travis CI
+- [ ] Better wrapper; possibly extend it to a command-line tool
 
 ## License
 Copyright (c) 2015, Antal János Monori
