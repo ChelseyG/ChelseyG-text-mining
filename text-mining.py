@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+#import the necessary modules
 import sys
 import ConfigParser
 
@@ -8,9 +9,8 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
-#This is a basic listener that just prints received tweets to stdout.
 class StdOutListener(StreamListener):
-
+    ''' This is a basic listener that just prints received tweets to stdout. '''
     def on_data(self, data):
         print data
         return True
@@ -20,41 +20,38 @@ class StdOutListener(StreamListener):
 
 class Utils:
     @staticmethod
-    def ConfigSectionMap(section):
+    def config_section_map(section):
         dict1 = {}
         options = config.options(section)
         for option in options:
             try:
                 dict1[option] = config.get(section, option)
                 if dict1[option] == -1:
-                    DebugPrint("skip: %s" % option)
+                    print "skip: %s" % option
             except:
-                print("exception on %s!" % option)
+                print "exception on %s!" % option
                 dict1[option] = None
         return dict1
 
 if __name__ == '__main__':
-
     try:
-        with open('./conf.ini') as f:
+        with open('./conf.ini'):
             config = ConfigParser.ConfigParser()
-            config.read('./conf.ini')    
-            u = Utils()
+            config.read('./conf.ini')
     except:
-        raise ValueError("exception: no config.ini file found with appropriate setup - try looking into _config.ini")
+        raise ValueError("no config.ini file found - try looking into _config.ini")
 
-    consumer_key = u.ConfigSectionMap('ApiSetup')['api_key']
-    consumer_secret = u.ConfigSectionMap('ApiSetup')['api_secret']
-    access_token = u.ConfigSectionMap('ApiSetup')['access_token_key']
-    access_token_secret = u.ConfigSectionMap('ApiSetup')['access_token_secret']
+    consumer_key = Utils.config_section_map('ApiSetup')['api_key']
+    consumer_secret = Utils.config_section_map('ApiSetup')['api_secret']
+    access_token = Utils.config_section_map('ApiSetup')['access_token_key']
+    access_token_secret = Utils.config_section_map('ApiSetup')['access_token_secret']
 
     #This handles Twitter authetification and the connection to Twitter Streaming API
-    l = StdOutListener()
+    outListener = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
-    stream = Stream(auth, l)
-    if (len(sys.argv) <= 1):
-	print("exception: no argument defined - use 'python text-mining.py arg1...' form")
+    stream = Stream(auth, outListener)
+    if len(sys.argv) <= 1:
+        raise ValueError("exception: no argument found - use 'python text-mining.py arg1...'")
     else:
-#        print(len(sys.argv))
         stream.filter(track=sys.argv[1:])
