@@ -4,9 +4,11 @@ A simple tool for text-mining tweets using the official Twitter Streaming API an
 ## Requirements
 - Python 2.7.6
 - [Tweepy](https://github.com/tweepy/tweepy)
+- [PyMongo 3.0.3+](https://api.mongodb.org/python/current/)
+- [mongoDB 3.0.5](https://www.mongodb.org/downloads)
 - Your very own Twitter app - register one [here](https://apps.twitter.com)
 
-_Note: please follow the installation instruction found on the official Tweepy repo before continuing_
+_Note: please follow the installation instruction found on the official Tweepy repo before continuing. Also make sure you have all the required software installed and set up before proceeding._
 
 ## Installation
 - ``` git clone https://github.com/anthonymonori/text-mining.git ./text-mining ```
@@ -17,6 +19,8 @@ _Note: please follow the installation instruction found on the official Tweepy r
 ## Usage
 ``` python text-mining.py hashtag1 hashtag2 ... ```
 
+_Note: Currently saves the tweets into a collection called tweets in a mongodb database called test._
+
 ## Use cases
 - Data mining of tweets for Big Data analysis
 - Dumping data into a database a.k.a. collecting
@@ -24,7 +28,9 @@ _Note: please follow the installation instruction found on the official Tweepy r
 - Any other ideas? Let me know
 
 ## Todo
-- [ ] Add mongoDB integration using PyMongo driver
+- [x] Add mongoDB integration using PyMongo driver
+- [ ] Add database settings into the global conf file
+- [ ] Change database and collection naming
 - [ ] Put the project on Travis CI
 - [ ] Better wrapper; possibly extend it to a command-line tool
 

@@ -2,6 +2,8 @@
 
 #import the necessary modules
 import sys
+import pymongo
+import json
 import ConfigParser
 
 #import the necessary methods from tweepy library
@@ -10,13 +12,25 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 
 class StdOutListener(StreamListener):
+    def __init__(self):
+        super(StreamListener, self).__init__()
+
+        self.db = pymongo.MongoClient().test #change test to prod db name
+
     ''' This is a basic listener that just prints received tweets to stdout. '''
     def on_data(self, data):
-        print data
+        self.db.tweets.insert(json.loads(data)) #saves data in tweets collection
+
+        #debug print
+        print "Entry saved in db. There are " + str(self.db.tweets.count()) + " entries in the collection."
         return True
 
     def on_error(self, status):
         print status
+        return True # Don't kill the stream
+
+    def on_timeout(self):
+        return True # Don't kill the stream
 
 class Utils:
     @staticmethod
