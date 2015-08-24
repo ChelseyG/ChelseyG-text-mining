@@ -20,6 +20,7 @@ _Note: please follow the installation instruction found on the official Tweepy r
 ## Installation
 - ``` git clone https://github.com/anthonymonori/text-mining.git ./text-mining ```
 - ``` cd ./text-mining ```
+- ``` sudo pip install requirements.txt ```
 - ``` open _conf.ini ```
 - ``` mv _conf.ini conf.ini ```
 
