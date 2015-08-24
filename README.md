@@ -1,3 +1,10 @@
+![](https://img.shields.io/travis/anthonymonori/text-mining.svg?style=flat-square)
+![](https://img.shields.io/github/issues/anthonymonori/text-mining.svg?style=flat-square)
+![](https://img.shields.io/github/forks/anthonymonori/text-mining.svg?style=flat-square)
+![](https://img.shields.io/github/stars/anthonymonori/text-mining.svg?style=square)
+![](https://img.shields.io/badge/license-BSD-blue.svg?style=square)
+![](https://img.shields.io/twitter/url/https/github.com/anthonymonori/text-mining.svg?style=social)
+
 # text-mining
 A simple tool for text-mining tweets using the official Twitter Streaming API and written in Python for Big Data analysis. Read more about the API [here](https://dev.twitter.com/streaming/overview).
 
